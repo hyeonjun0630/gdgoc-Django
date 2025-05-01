@@ -17,9 +17,10 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from myapp.views import PostRetriveUpdate
+from myapp.views import PostRetrieveUpdateDestroy, PostListCreate
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("post", PostRetriveUpdate.as_view())
+    path("post", PostListCreate.as_view()),
+    path("post/<int:pk>", PostRetrieveUpdateDestroy.as_view())
 ]
